@@ -5,7 +5,7 @@ import Feather from 'react-native-vector-icons/Feather'
 import Entypo from 'react-native-vector-icons/Entypo'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {CurrentWeatherData} from '../types/CurrentWeatherData';
-import getWeatherImage from '../helpers/getWeatherImage';
+import getWeatherImage from '../helpers/getWeatherImage'
 import { WeatherCode } from '../helpers/getWeatherImage';
 
 type CurrentWeatherProp = {

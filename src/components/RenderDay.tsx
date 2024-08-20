@@ -1,4 +1,4 @@
-import getWeatherImage from '@/helpers/getWeatherImage';
+import getWeatherImage from '../helpers/getWeatherImage'
 import removeStartingDoubleSlash from '../helpers/removeStartingDoubleSlash'
 import {ForecastDay} from '../types/WeatherData'
 import {Image, Text, View} from 'react-native';
