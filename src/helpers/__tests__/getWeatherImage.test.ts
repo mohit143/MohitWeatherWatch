@@ -32,6 +32,11 @@ test.each([
 ])(
   'should render the correct image for weather code: $weatherCode',
   ({weatherCode, image}) => {
-    expect(getWeatherImage(weatherCode)).toEqual(image);
+    const weatherImage = getWeatherImage(weatherCode)
+  const currDate = new Date('2024-08-18T05:45');
+  const hour = currDate.getHours();
+  const isDayTime = hour > 6 && hour < 19;
+  const imageData = weatherImage.day
+    expect(imageData.image).toEqual(image);
   },
 );

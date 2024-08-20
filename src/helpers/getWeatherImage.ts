@@ -6,7 +6,7 @@ type WeatherImage = Record<
   }
 >;
 
-type WeatherCode =
+export type WeatherCode =
   | '0'
   | '1'
   | '2'
@@ -36,7 +36,7 @@ type WeatherCode =
   | '96'
   | '99';
 
-const items: Record<WeatherCode, WeatherImage> = {
+const items: Record<string, WeatherImage> = {
   '0': {
     day: {
       description: 'Sunny',
@@ -328,8 +328,9 @@ const items: Record<WeatherCode, WeatherImage> = {
  * @param weatherCode The WMO weather code
  * @returns A "day" image representation of the WMO weather code
  */
-function getWeatherImage(weatherCode: WeatherCode) {
+function getWeatherImage(weatherCode: string) : WeatherImage {
   // Write implementation for this function to return the "day" image for a given weather code.
+  return items[weatherCode];
 }
 
 export default getWeatherImage;
