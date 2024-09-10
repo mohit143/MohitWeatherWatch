@@ -24,7 +24,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         Platform.OS == 'android' ? 'mt-4 ' : ''
       } ${showSearchBar ? 'bg-sky-900' : ''}`}>
       {showSearchBar ? (
-        <TextInput
+        <TextInput testID='searchBar'
           onChangeText={handleDebounce}
           placeholder="Search City"
           placeholderTextColor={'white'}
@@ -32,7 +32,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         />
       ) : null}
 
-      <TouchableOpacity
+      <TouchableOpacity testID='showSearchBar'
         onPress={() => {
           console.log('Inside search', showSearchBar)
           setShowSearchBar(!showSearchBar);

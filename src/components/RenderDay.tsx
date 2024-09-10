@@ -2,6 +2,7 @@ import getWeatherImage from '../helpers/getWeatherImage'
 import removeStartingDoubleSlash from '../helpers/removeStartingDoubleSlash'
 import {ForecastDay} from '../types/WeatherData'
 import {Image, Text, View} from 'react-native';
+import React from 'react';
 
 type RenderImageProp = {
   item: ForecastDay;
@@ -15,8 +16,12 @@ const RenderImage: React.FC<RenderImageProp> = ({item}) => {
   const weatherImage = getWeatherImage(String(item.weather_code))
   const imageData = weatherImage.day;
 
-console.log('image', 'https://' +
-              removeStartingDoubleSlash(imageData.image || ''))
+//   console.log('dayname is', dayName)
+//   console.log('weather image', weatherImage)
+//   console.log('item is', item)
+
+// console.log('image', 'https://' +
+//               removeStartingDoubleSlash(imageData.image || ''))
 
   //if (index == 0) return null;
   return (

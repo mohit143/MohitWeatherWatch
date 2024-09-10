@@ -35,3 +35,8 @@ export type DailyWeatherData = {
   temperature_2m_max: number[];
   temperature_2m_min: number[];
 }
+
+export type WeatherDataError = {
+  errorCode?: number;
+  errorDescription?: string;
+};

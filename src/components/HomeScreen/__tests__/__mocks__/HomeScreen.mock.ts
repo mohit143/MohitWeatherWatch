@@ -1,5 +1,5 @@
 import { WeatherData } from "@/types";
-import { ForecastDay } from "@/types/WeatherData";
+import { ForecastDay, WeatherDataError } from "@/types/WeatherData";
 
 const currDate = new Date()
 const isoDate = currDate.toISOString()
@@ -117,3 +117,8 @@ export const mockDailyWeatherData: ForecastDay[] = [
         avgtemp_c: 28.75
     }
 ];
+
+export const mockWeatherErrorData: WeatherDataError = {
+    errorCode: 500,
+    errorDescription: 'Request failed, could not fetch data'
+}

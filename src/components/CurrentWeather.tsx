@@ -17,31 +17,35 @@ const CurrentWeather: React.FC<CurrentWeatherProp> = ({current}) => {
   const currDate = new Date(current?.time!);
   const hour = currDate.getHours();
   const isDayTime = hour > 6 && hour < 19;
-  const imageData = isDayTime ? weatherImage.day : weatherImage.night;
+  const imageData = isDayTime ? weatherImage?.day : weatherImage?.night;
 console.log('image', 'https://' +
-              removeStartingDoubleSlash(imageData.image || ''))
+              removeStartingDoubleSlash(imageData?.image || ''))
   return (
     <>
       {/* IMAGE VIEW */}
       <View className="justify-center flex-column items-center">
-        <Image testID='currentImage' 
+        {
+          (imageData == undefined ? null : (
+            <Image testID='currentImage' 
             source={{
               uri:
                 'https://' +
-                removeStartingDoubleSlash(imageData.image || '')
+                removeStartingDoubleSlash(imageData?.image || '')
             }}
           className="w-52 h-52"
         />
+          ))
+        }
       </View>
       {/* TEMPERATURE CELCUS & WEATHER TEXT */}
       <View className="-mt-5 mb-2 bg-sky-900 p-2 rounded-xl">
         <Text testID='currentDescription' className="text-center text-xl text-white tracking-widest">
-          {imageData.description ? '(' + imageData.description + ')' : ''}
+          {imageData?.description ? '(' + imageData?.description + ')' : ''}
         </Text>
       </View>
       <View className="space-y-6 m-4">
         <Text testID='currentTemp' className="text-center text-6xl text-white font-bold">
-          {current?.temperature_2m}&#176;
+          {current?.temperature_2m ? current?.temperature_2m + '°' : ''}
         </Text>
       </View>
       {/* WEATHER CONDITIONS */}
@@ -50,13 +54,13 @@ console.log('image', 'https://' +
           <View className="flex-row space-x-1 items-center">
             <Feather name="wind" size={30} color="white" />
             <Text testID='currentSpeed' className="items-center text-white text-lg font-semibold">
-              {current?.wind_speed_10m} km
+              {current?.wind_speed_10m ? current?.wind_speed_10m + ' km/h' : ''}
             </Text>
           </View>
           <View className="flex-row space-x-1 items-center">
             <Entypo name="drop" size={30} color="white" />
             <Text testID='currentHumidity' className="items-center text-white text-lg font-semibold">
-              {current?.relative_humidity_2m}%
+              {current?.relative_humidity_2m ? current?.relative_humidity_2m + '%' : ''}
             </Text>
           </View>
         </View>

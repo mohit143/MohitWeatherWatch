@@ -1,21 +1,15 @@
 
 module.exports = {
   preset: 'react-native',
-  moduleFileExtensions: [
-  "ts",
-  "tsx",
-  "js",
-  "jsx",
-  "json",
-  "node"
-],
-transform: {
-  '^.+\\.tsx?$': 'ts-jest'
-},
-transformIgnorePatterns: [
-  "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|expo-location)"
-]
-// transformIgnorePatterns: [
-//   'node_modules/(?!((jest-)?react-native(-.*)?|@react-native(-community)?)/)'
-// ]
-}
+  transform: {
+    '^.+\\.(js|ts|tsx)$': 'babel-jest',
+    '\\.(js|jsx|ts|tsx)$': 'babel-jest', // Ensure Babel handles JS/TS files
+  },
+  setupFilesAfterEnv: ['@testing-library/jest-native/extend-expect'],
+  moduleNameMapper: {
+    '\\.(css|less)$': 'identity-obj-proxy',
+  },
+  transformIgnorePatterns: [
+    'node_modules/(?!(react-native|@react-native|react-native-vector-icons)/)',
+  ],
+};
